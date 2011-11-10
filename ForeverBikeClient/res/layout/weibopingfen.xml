@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:orientation="vertical" android:padding="10dip">
+	<RatingBar android:id="@+id/ratingBar1" android:layout_width="wrap_content"
+	android:layout_weight="2"
+		android:layout_height="wrap_content"></RatingBar>
+	<Button android:text="分享微博" android:id="@+id/button_shareweibo"
+	android:layout_weight="6"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"></Button>
+
+
+</LinearLayout>

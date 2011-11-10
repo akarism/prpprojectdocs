@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <EditText android:text="请在下面框中输入微博内容" android:layout_height="wrap_content" android:id="@+id/editText1" android:layout_width="fill_parent"></EditText>
+    <EditText android:text="" android:id="@+id/editText_message" android:layout_height="wrap_content" android:layout_width="fill_parent"></EditText>
+    <Button android:text="发表微博" android:id="@+id/button_sendmessage" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="返回食谱" android:id="@+id/button_goback" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <ImageView android:layout_height="fill_parent" android:id="@+id/imageView1" android:layout_width="fill_parent" android:src="@drawable/bkg2"></ImageView>
+</LinearLayout>
