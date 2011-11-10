@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.extension" value="action" />
+	<package name="actions" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="AuthenticationIntercepter"
+				class="edu.sjtu.se.ist.forever.intercepter.AuthenticationIntercepter"></interceptor>
+			<interceptor-stack name="AuthenticationStack">
+				<interceptor-ref name="AuthenticationIntercepter"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="AuthenticationStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="failed">/ftls/fail.ftl</result>
+		</global-results>
+		
+		<action name="loginaction" class="LoginAction">
+			<result name="success" type="freemarker">/ftls/login.ftl</result>
+		</action>
+		
+		<action name="logoutaction" class="LogoutAction">
+			<result name="success" type="freemarker">/ftls/logout.ftl</result>
+		</action>
+		
+		<action name="getallnetpoint" class="GetAllNetPointAction">
+			<result name="success" type="freemarker">/ftls/getallnetpoint.ftl</result>
+		</action>
+		
+		<action name="getallnetinfo" class="GetAllNetInfoAction">
+			<result name="success" type="freemarker">/ftls/getallnetinfo.ftl</result>
+		</action>
+		<!--<action name="GetOripsImageAction" class="GetOripsImageAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>  
+            	<param name="inputName">imageStream</param>  
+            	<param name="bufferSize">1024</param>  
+			</result>
+			  <interceptor-ref name="defaultStack"/>  
+		</action>
+		
+	-->
+	</package>
+</struts>
