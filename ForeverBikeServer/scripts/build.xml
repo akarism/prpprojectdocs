@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="oripscs" basedir="." default="deploy">
+	<property environment="env"/>
+	<property name="src.home" location="${basedir}/../src"/>
+	<property name="test.home" location="${basedir}/../test"/>
+	<property name="build.home" location="${basedir}/../../build"/>
+	<property name="webroot.home" location="${basedir}/../WebRoot"/>
+	<property name="lib.home" location="${basedir}/../lib"/>
+	<property name="deploy.dir" value="${env.JBOSS_HOME}/server/default/deploy"/>
+	<path id="compile.path">
+		<fileset dir="${lib.home}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<target name="initial">
+		<delete failonerror="false" dir="${build.home}"/>
+		<copy todir="${build.home}">
+			<fileset dir="${webroot.home}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${build.home}/WEB-INF/lib">
+			<fileset dir="${lib.home}">
+				<include name="**/*.jar"/>
+				<exclude name="servlet-api.jar"/>
+			</fileset>
+		</copy>
+		<mkdir dir="${build.home}/META-INF" />
+		<mkdir dir="${build.home}/WEB-INF/classes" />
+		<!--<native2ascii encoding="utf-8" dest="${src.home}/resources" src="${src.home}/resources/zh_cn" includes="*.properties"/> -->
+		
+	</target>
+	<target name="compile" depends="initial">
+		<javac srcdir="${src.home}" destdir="${build.home}/WEB-INF/classes">
+			<compilerarg line="-encoding UTF-8"/>
+			<classpath refid="compile.path">
+			</classpath>
+		</javac>
+		<!--<javac srcdir="${test.home}" destdir="${build.home}/WEB-INF/classes">
+			<classpath refid="compile.path">
+			</classpath>
+		</javac> -->		
+		<copy todir="${build.home}/WEB-INF/classes">
+			<fileset dir="${src.home}">
+				<include name="**/*.xml" />
+				<include name="**/*.properties" />
+				<include name="**/*.json"/>
+			</fileset>
+		</copy>
+	</target>
+	<target name="packup" depends="compile">
+		<jar destfile="${build.home}/forever.war">
+			<fileset dir="${build.home}">
+				<include name="**/*" />
+				<exclude name="classes/test/**/*" />
+			</fileset>
+		</jar>
+	</target>
+	<target name="deploy" depends="packup">
+		<copy todir="${deploy.dir}/">
+			<fileset dir="${build.home}">
+				<include name="forever.war" />
+			</fileset>
+		</copy>
+	</target>
+</project>
