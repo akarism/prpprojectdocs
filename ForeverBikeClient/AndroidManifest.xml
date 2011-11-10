@@ -3,7 +3,7 @@
       package="com.forever.bike"
       android:versionCode="1"
       android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="3" />
+    <uses-sdk android:minSdkVersion="8" />
 
 	 <uses-permission 
     	android:name="android.permission.INTERNET" xmlns:android="http://schemas.android.com/apk/res/android"></uses-permission>
@@ -15,7 +15,7 @@
     <application android:label="@string/app_name" android:icon="@drawable/bike" android:theme="@android:style/Theme.NoTitleBar">
         
         <uses-library android:name="com.google.android.maps"/>
-        <activity android:label="@string/app_name" android:name="com.forever.bike.LoginActivity">
+        <activity android:label="@string/app_name" android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
