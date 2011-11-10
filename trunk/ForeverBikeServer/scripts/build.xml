@@ -6,7 +6,7 @@
 	<property name="build.home" location="${basedir}/../../build"/>
 	<property name="webroot.home" location="${basedir}/../WebRoot"/>
 	<property name="lib.home" location="${basedir}/../lib"/>
-	<property name="deploy.dir" value="${env.JBOSS_HOME}/server/default/deploy"/>
+	<property name="deploy.dir" value="${env.JBOSS_HOME}/standalone/deployments"/>
 	<path id="compile.path">
 		<fileset dir="${lib.home}">
 			<include name="**/*.jar" />
