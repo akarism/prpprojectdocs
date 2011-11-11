@@ -46,7 +46,7 @@ public class LoginAction extends ForeverSupport {
 			return ActionResultConstants.FAILED;
 		}
 		System.out.println(loginfeedback);
-		return SUCCESS;
+		return ActionResultConstants.SUCCESS;
 	}
 
 	public String getLoginfeedback() {
