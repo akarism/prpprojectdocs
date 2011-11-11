@@ -5,6 +5,6 @@ public class LogoutAction extends ForeverSupport{
 		System.out.println("Enter into logout");
 		this.setUser(null);
 		this.getSession().clear();
-		return SUCCESS;
+		return ActionResultConstants.SUCCESS;
 	}
 }

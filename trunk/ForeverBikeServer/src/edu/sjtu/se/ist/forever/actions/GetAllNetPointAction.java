@@ -98,7 +98,7 @@ public class GetAllNetPointAction extends ForeverSupport {
 				e.printStackTrace();
 			}
 		}
-		return SUCCESS;
+		return ActionResultConstants.SUCCESS;
 		
 	}
 

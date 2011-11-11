@@ -91,7 +91,7 @@ public class GetAllNetInfoAction extends ForeverSupport {
 			}
 		}
 		System.out.println(allNetInfo);
-		return SUCCESS;
+		return ActionResultConstants.SUCCESS;
 	}
 
 	public void setAllNetInfo(String allNetInfo) {
