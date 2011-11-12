@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- Task beans -->
+
+	<bean id="calWeightTask" class="edu.sjtu.se.ist.forever.schedule.CalWeightTask" />
+
+	<!-- Job beans -->
+
+	<bean id="calWeightJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>edu.sjtu.se.ist.forever.schedule.CalWeightJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="calWeightTask">
+					<ref bean="calWeightTask" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="clockJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="calWeightTask" />
+		<property name="targetMethod" value="doIt" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<!-- Schedule Trigger -->
+
+	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<!-- invoking job above -->
+		<property name="jobDetail" ref="calWeightJob" />
+		<!-- 10 seconds -->
+		<property name="startDelay" value="10000" />
+		<!-- repeat every 50 seconds -->
+		<property name="repeatInterval" value="60000" />
+	</bean>
+
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- invoking job above -->
+		<property name="jobDetail" ref="clockJob" />
+		<!-- run every morning at 6 AM -->
+		<property name="cronExpression" value="0 50 16 * * ?" />
+	</bean>
+
+	<!-- Schedule Start -->
+	<bean id="scheduleStart"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+				<ref bean="simpleTrigger" />
+			</list>
+		</property>
+	</bean>
+</beans>
