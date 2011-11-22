@@ -5,7 +5,7 @@ import java.sql.*;
 public class CalWeightTask {
 
 	private int count = 1;
-	public double[] execute(String[] calcData) throws SQLException
+	public double[] execute(String userID,String time) throws SQLException
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -26,9 +26,9 @@ public class CalWeightTask {
 		while(rs.next()) {
 		    String[] res = new String[10];
 		    res[0] = rs.getString("id_time");
-		    String userID = rs.getString("id_user");
+		    String id = rs.getString("id_user");
 		    PreparedStatement pstmt = conn.prepareStatement("select * from t_user where id_user = ?");
-		    pstmt.setString(1, userID);
+		    pstmt.setString(1, id);
 		    ResultSet rs2 = pstmt.executeQuery();
 		    rs2.next();
 		    res[1] = rs2.getString("id_age");
@@ -43,16 +43,36 @@ public class CalWeightTask {
 		    array[t] = res;
 		    t++;
 		}
-		DTree tree = new DTree();
+		
+		String[] calcData = new String[6];
+		calcData[0] = time;
+		PreparedStatement pstmt = conn.prepareStatement("select * from t_user where id_user = ?");
+	    pstmt.setString(1, userID);
+	    rs = pstmt.executeQuery();
+	    if (rs.next())
+	    {
+	    	calcData[1] = rs.getString("id_age");
+	    	calcData[2] = rs.getString("id_work");
+	    	calcData[3] = rs.getString("id_study");
+	    	calcData[4] = rs.getString("id_marry");
+	    	calcData[5] = rs.getString("id_sex");
+	    }
+		Object[] trainData = new Object[array.length];
 		for (int i = 0;i<4; i++)
 		{
+			DTree tree = new DTree();
 			for (int j = 0; j<array.length; j++)
 			{
+				String[] trainRow = new String[7];
 				String[] temp = (String[]) array[j];
-				temp[6] = temp[6+i];
-				array[j] = temp;
+				for (int k = 0; k<6; k++)
+				{
+					trainRow[k] = temp[k];
+				}
+				trainRow[6] = temp[6+i];
+				trainData[j] = trainRow;
 			}
-			tree.create(array, 6);
+			tree.create(trainData, 6);
 			result[i] = tree.compare(calcData, tree.root);
 		}
 		return result;
