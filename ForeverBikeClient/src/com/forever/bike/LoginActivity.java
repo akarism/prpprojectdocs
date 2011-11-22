@@ -71,30 +71,16 @@ public class LoginActivity extends Activity {
 				}
 				else {
 					
-					showDialog();
+					showErrorDialog();
 				}
-				
-				
-//				
-//				Intent intent=new Intent(LoginActivity.this,MainMenuActivity.class);  
-//				Bundle globledata=new Bundle();
-//				globledata.putString("userId", globleinfo.getUserId());
-//				globledata.putString("sessionId", globleinfo.getSessionId());
-//				intent.putExtras(globledata);
-//				startActivity(intent);
-//				
-				
 			}
-		});
-		
-	
-		
+		});	
     }
     
     private String login(String username,String password){
 		String urlStr="http://59.78.58.190:8080/forever/loginaction.action?userName="+username+"&password="+password;
 //		String urlStr="http://192.168.1.192:8080/forever/loginaction.action?userName="+username+"&password="+password;
-		
+//    	String urlStr="http://10.0.2.2:8080/forever/loginaction.action?userName="+username+"&password="+password;
 		HttpGet request=new HttpGet(urlStr);
 		String answer="success";
 		if (globleinfo.getSessionId() != null)
@@ -117,20 +103,16 @@ public class LoginActivity extends Activity {
 		} catch (Exception e){			
 		}
 		return "fail";
-		
-		
 	}
     
-    private void showDialog(){
+    private void showErrorDialog(){
     	AlertDialog.Builder builder=new AlertDialog.Builder(this);
     	builder.setMessage("用户名或密码错误")
     		.setCancelable(false)
     		.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					// TODO Auto-generated method stub
-					
 				}
 			});
     	AlertDialog alert=builder.create();
