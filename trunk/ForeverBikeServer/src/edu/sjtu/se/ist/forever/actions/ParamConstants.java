@@ -13,8 +13,8 @@ public class ParamConstants {
 	public final static String TOWN="town";
 	public final static String COUNTY="county";
 	public final static String STATIONS="stations";
-	public final static String Time="11:11:11";
-	public final static String POSX="0";
-	public final static String POSY="0";
-	public final static String SHOP="1";
+	public final static String Time="time";
+	public final static String POSX="posx";
+	public final static String POSY="posy";
+	public final static String SHOP="shop";
 }
