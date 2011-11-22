@@ -29,12 +29,12 @@ public class CalWeightJob extends QuartzJobBean{
 	{
 		CalWeightTask cwt = new CalWeightTask();
 		try{
-			String[] printData = new String[] { "2", "3", "2", "2", "2", "1"};
-			double[] res = cwt.execute(printData);
-			for (int i=0; i<res.length; i++)
-			{
-				System.out.println(res[i]);
-			}
+			//String[] printData = new String[] { "2", "3", "2", "2", "2", "1"};
+			//double[] res = cwt.execute(printData);
+			//for (int i=0; i<res.length; i++)
+			//{
+				//System.out.println(res[i]);
+			//}
 		} catch (Exception e){
 			e.printStackTrace();
 		}

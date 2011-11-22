@@ -151,6 +151,8 @@ public class DTree {
 		for (int i = 0; i < arrtibutes.length; i++) {
 			Object[] pickArray = pickUpAndCreateArray(array, arrtibutes[i],
 					getNodeIndex(parentNode.nodeName));
+			if (pickArray.length>0)
+			{
 			Object[] info = getMaxGain(pickArray);
 			double gain = ((Double) info[0]).doubleValue();
 			if (gain != 0) {
@@ -185,6 +187,7 @@ public class DTree {
 					}
 				}
 				leafNode.percent = percent;
+			}
 			}
 		}
 	}
@@ -346,7 +349,7 @@ public class DTree {
 	 * @return String
 	 */
 	public String getNodeName(int index) {
-		String[] strs = new String[] { "性别", "年龄", "婚否", "学历", "中还是低", "是否购买" };
+		String[] strs = new String[] { "时间", "年龄", "工作", "学历", "婚否","性别","是否感兴趣" };
 		for (int i = 0; i < strs.length; i++) {
 			if (i == index) {
 				return strs[i];
@@ -376,7 +379,7 @@ public class DTree {
 	 * @return int
 	 */
 	public int getNodeIndex(String name) {
-		String[] strs = new String[] { "性别", "年龄", "婚否", "学历", "中还是低", "是否购买" };
+		String[] strs = new String[] { "时间", "年龄", "工作", "学历", "婚否","性别","是否感兴趣" };
 		for (int i = 0; i < strs.length; i++) {
 			if (name.equals(strs[i])) {
 				return i;

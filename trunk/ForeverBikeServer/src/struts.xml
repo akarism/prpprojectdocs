@@ -37,6 +37,10 @@
 		<action name="getallnetinfo" class="GetAllNetInfoAction">
 			<result name="success" type="freemarker">/ftls/getallnetinfo.ftl</result>
 		</action>
+		
+		<action name="fetchdata" class="FetchData">
+			<result name="success" type="freemarker">/ftls/fetchdata.ftl</result>
+		</action>
 		<!--<action name="GetOripsImageAction" class="GetOripsImageAction">
 			<result name="success" type="stream">
 				<param name="contentType">image/jpeg</param>  
