@@ -76,6 +76,7 @@ public class QueryMapActivity extends MapActivity{
     	zoomLayout.addView(zoomView,new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
     	mapView.displayZoomControls(true);
     	MySearchText=(EditText) findViewById(R.id.editText1);
+    	//http://localhost:8080/forever/getallnetinfo.action
     	MyPos=(Button) findViewById(R.id.button1);
     	MySearch=(Button) findViewById(R.id.button2);
     	
@@ -307,9 +308,9 @@ public class QueryMapActivity extends MapActivity{
 //				 } , 0, 2*60*1000);        //1分钟更新一次        
     	
     	
-    	 String urlStr="http://59.78.58.190:8080/forever/getallnetinfo.action";
+//    	 String urlStr="http://59.78.58.190:8080/forever/getallnetinfo.action";
 //    	 String urlStr="http://192.168.1.192:8080/forever/getallnetinfo.action";
-		 
+    	 String urlStr="http://10.0.2.2:8080/forever/getallnetinfo.action";
     	 
     	 HttpGet request=new HttpGet(urlStr);
 		 if (globleinfo.getSessionId() != null)
@@ -330,7 +331,6 @@ public class QueryMapActivity extends MapActivity{
 					  JSONObject stations=station_array.getJSONObject(iter);
 					  shekou_array[iter].setBike_num(stations.getString("bike"));
 					  shekou_array[iter].setPillar_num(stations.getString("lock"));
-					 
 				  }
 				  
 			  }
