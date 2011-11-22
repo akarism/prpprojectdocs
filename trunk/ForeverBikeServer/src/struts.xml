@@ -41,6 +41,10 @@
 		<action name="fetchdata" class="FetchData">
 			<result name="success" type="freemarker">/ftls/fetchdata.ftl</result>
 		</action>
+		
+		<action name="selectshop" class="SelectShop">
+			<result name="success" type="freemarker">/ftls/selectshop.ftl</result>
+		</action>
 		<!--<action name="GetOripsImageAction" class="GetOripsImageAction">
 			<result name="success" type="stream">
 				<param name="contentType">image/jpeg</param>  
