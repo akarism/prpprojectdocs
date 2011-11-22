@@ -35,7 +35,7 @@ public class LoginAction extends ForeverSupport {
 			}
 			// authentication success
 			loginfeedback = session.getId();
-		} else if (userName.equals("yongjiu") && password.equals("test")) {
+		} else if (userName.equals("yongjiu") && password.equals("+")) {
 			// no session but authentication success
 			session.setAttribute("Login", "true");
 			session.setAttribute(ObjectConstants.USER_NAME, userName);
@@ -46,7 +46,7 @@ public class LoginAction extends ForeverSupport {
 			return ActionResultConstants.FAILED;
 		}
 		System.out.println(loginfeedback);
-		return ActionResultConstants.SUCCESS;
+		return SUCCESS;
 	}
 
 	public String getLoginfeedback() {
