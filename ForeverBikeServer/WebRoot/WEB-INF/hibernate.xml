@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<!-- This is settings for c3p0 pool -->
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl"
+			value="jdbc:mysql://localhost:3306/bike?useUnicode=true&amp;characterEncoding=utf8" />
+		<property name="user" value="bike" />
+		<property name="password" value="bike" />
+		<property name="minPoolSize" value="1"></property>
+		<property name="maxPoolSize" value="15"></property>
+		<property name="initialPoolSize" value="5"></property>
+		<property name="maxIdleTime" value="60"></property>
+		<property name="acquireIncrement" value="2"></property>
+		<property name="idleConnectionTestPeriod" value="60"></property>
+		<property name="acquireRetryAttempts" value="30"></property>
+		<property name="testConnectionOnCheckout" value="false"></property>
+	</bean>
+
+	<!-- Hibernate SessionFactory -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>/com/bjggzxb/pojo/student.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+				<prop key="hibernate.connection.release_mode">auto</prop>
+				<prop key="hibernate.autoReconnect">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+</beans>

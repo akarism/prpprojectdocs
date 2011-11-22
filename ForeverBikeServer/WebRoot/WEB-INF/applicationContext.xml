@@ -5,4 +5,5 @@
 	default-autowire="no">
 	<import resource="action-beans.xml"/>
 	<import resource="quartz.xml"/>
+	<!--<import resource="hibernate.xml"/>-->
 </beans>

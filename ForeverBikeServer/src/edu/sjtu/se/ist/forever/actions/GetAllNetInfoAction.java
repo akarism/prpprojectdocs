@@ -22,7 +22,7 @@ public class GetAllNetInfoAction extends ForeverSupport {
 		// db connection
 		Connection conn = null;
 		Statement stmt = null;
-		String sql = "select * from T_STATION_STATUS";
+		String sql = "select * from t_station_status";
 		ResultSet rs = null;
 		// set pattern for station nid
 		DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance();
@@ -51,8 +51,8 @@ public class GetAllNetInfoAction extends ForeverSupport {
 //			String url = "jdbc:oracle:thin:@localhost:1521:BIKE";
 //			conn = DriverManager.getConnection(url, "HR", "HR");
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/BIKE?useUnicode=true&amp;characterEncoding=utf8";
-			conn = DriverManager.getConnection(url,"rest","rest");
+			String url = "jdbc:mysql://localhost:3306/bike?useUnicode=true&amp;characterEncoding=utf8";
+			conn = DriverManager.getConnection(url,"bike","bike");
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {

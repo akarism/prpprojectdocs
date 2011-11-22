@@ -2,6 +2,7 @@ package edu.sjtu.se.ist.forever.actions;
 
 public final class ObjectConstants {
 	public final static String USER_KEY="userKey";
+	public final static String USER_ID="userId";
 	public final static String USER_NAME="userName";
 	public final static String PASSWORD="password";
 	//returned key
