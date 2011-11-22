@@ -16,4 +16,5 @@ public class ParamConstants {
 	public final static String Time="11:11:11";
 	public final static String POSX="0";
 	public final static String POSY="0";
+	public final static String SHOP="1";
 }

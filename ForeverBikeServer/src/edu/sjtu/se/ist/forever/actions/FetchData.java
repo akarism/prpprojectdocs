@@ -34,7 +34,7 @@ public class FetchData  extends ForeverSupport{
 			// authentication fail
 			return ActionResultConstants.FAILED;
 		}
-		return SUCCESS;
+		return ActionResultConstants.SUCCESS;
 	}
 	public void fetch(String userID,String time,String posx,String posy) throws SQLException, JSONException
 	{
