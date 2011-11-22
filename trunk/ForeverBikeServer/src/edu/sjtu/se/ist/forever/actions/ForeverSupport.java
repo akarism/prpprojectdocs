@@ -12,47 +12,42 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import edu.sjtu.se.ist.forever.domain.ForeverUser;
 
-
-public class ForeverSupport extends ActionSupport 
-implements SessionAware, ApplicationAware, ServletRequestAware{
+public class ForeverSupport extends ActionSupport implements SessionAware,
+		ApplicationAware, ServletRequestAware {
 	private static final long serialVersionUID = 1L;
 	private String timestamp;
-	private String task=null;
-	@SuppressWarnings("unchecked")
-	private Map session;
-	@SuppressWarnings("unchecked")
-	private Map application;
-	@SuppressWarnings("unchecked")
+	private String task = null;
+	private Map<String, Object> session;
+	private Map<String, Object> application;
 	private HttpServletRequest request;
-	@SuppressWarnings("unchecked")
-//	@Override
-	public void setSession(Map arg0) {
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
-		this.session=arg0;
+		this.session = arg0;
 	}
 
-	@SuppressWarnings("unchecked")
-//	@Override
-	public void setApplication(Map arg0) {
+	@Override
+	public void setApplication(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
-		this.application=arg0;
+		this.application = arg0;
 	}
-	@SuppressWarnings("unchecked")
-//	@Override
+
+	@Override
 	public void setServletRequest(HttpServletRequest arg0) {
 		// TODO Auto-generated method stub
-		this.request=arg0;
+		this.request = arg0;
 	}
-	@SuppressWarnings("unchecked")
-	public Map getApplication(){
+
+	public Map<String, Object> getApplication() {
 		return this.application;
 	}
-	@SuppressWarnings("unchecked")
-	public Map getSession(){
+
+	public Map<String, Object> getSession() {
 		return this.session;
 	}
-	@SuppressWarnings("unchecked")
-	public HttpServletRequest getRequest(){
+
+	public HttpServletRequest getRequest() {
 		return this.request;
 	}
 
@@ -60,10 +55,10 @@ implements SessionAware, ApplicationAware, ServletRequestAware{
 		return (ForeverUser) getSession().get(ObjectConstants.USER_KEY);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void setUser(ForeverUser user) {
 		getSession().put(ObjectConstants.USER_KEY, user);
 	}
+
 	public String getTask() {
 		return task;
 	}
