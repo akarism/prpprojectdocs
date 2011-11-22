@@ -15,4 +15,10 @@
 	<bean id="GetAllNetInfoAction" class="edu.sjtu.se.ist.forever.actions.GetAllNetInfoAction"
 		scope="prototype">
 	</bean>
+	<bean id="FetchData" class="edu.sjtu.se.ist.forever.actions.FetchData"
+		scope="prototype">
+	</bean>
+	<bean id="SelectShop" class="edu.sjtu.se.ist.forever.actions.SelectShop"
+		scope="prototype">
+	</bean>
 </beans>
