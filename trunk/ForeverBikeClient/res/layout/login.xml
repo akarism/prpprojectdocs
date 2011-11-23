@@ -55,7 +55,8 @@
             <EditText android:text="" android:id="@+id/pwdEditText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:password="true"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="right">
-            <Button android:text="登录" android:id="@+id/loginbtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+            <TextView android:text="" android:id="@+id/textView16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000"></TextView>
+            <Button android:text="登录" android:id="@+id/loginbtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         </TableRow>
     </TableLayout>
 </LinearLayout>
