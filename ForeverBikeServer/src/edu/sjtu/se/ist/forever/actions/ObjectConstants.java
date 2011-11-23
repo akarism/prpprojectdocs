@@ -15,4 +15,7 @@ public final class ObjectConstants {
 	public final static String LATITUDE = "lat";
 	public final static String LONGITUDE = "lng";
 	public final static String STATION_NAME = "name";
+	//shop
+	public final static String SHOP_LOCATION = "location";
+	public final static String SHOP_DESCRIBE = "describe";
 }

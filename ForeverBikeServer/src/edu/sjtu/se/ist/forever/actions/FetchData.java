@@ -80,6 +80,8 @@ public class FetchData  extends ForeverSupport{
 			JSONObject netPoint = new JSONObject();
 			netPoint.put(ObjectConstants.STATION_NID, rs.getString("id_shop"));
 			netPoint.put(ObjectConstants.STATION_NAME, rs.getString("shop_name"));
+			netPoint.put(ObjectConstants.SHOP_LOCATION, rs.getString("shop_location"));
+			netPoint.put(ObjectConstants.SHOP_DESCRIBE, rs.getString("describe"));
 			netPoint.put(ObjectConstants.LATITUDE, rs.getString("latitude"));
 			netPoint.put(ObjectConstants.LONGITUDE, rs.getString("longitude"));
 			//add this object to json array
@@ -100,6 +102,6 @@ public class FetchData  extends ForeverSupport{
 	public static void main(String[] args) throws SQLException, JSONException
 	{
 		FetchData fd = new FetchData();
-		fd.fetch("1", "06:00:00", "20", "128");
+		fd.fetch("2", "06:00:00", "20", "128");
 	}
 }

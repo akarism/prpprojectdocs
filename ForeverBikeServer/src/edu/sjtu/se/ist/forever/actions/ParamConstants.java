@@ -14,7 +14,7 @@ public class ParamConstants {
 	public final static String COUNTY="county";
 	public final static String STATIONS="stations";
 	public final static String Time="time";
-	public final static String POSX="posx";
-	public final static String POSY="posy";
+	public final static String POSX="lat";
+	public final static String POSY="lng";
 	public final static String SHOP="shop";
 }
