@@ -5,14 +5,14 @@
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="8" />
 
-	 <uses-permission 
+	<uses-permission 
     	android:name="android.permission.INTERNET" xmlns:android="http://schemas.android.com/apk/res/android"></uses-permission>
     <uses-permission 
     	android:name="android.permission.ACCESS_FINE_LOCATION" xmlns:android="http://schemas.android.com/apk/res/android"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
 	
 	
-    <application android:label="@string/app_name" android:icon="@drawable/bike" android:theme="@android:style/Theme.NoTitleBar">
+    <application android:label="@string/app_name" android:icon="@drawable/bike" android:theme="@android:style/Theme.NoTitleBar" android:name="BikeApplication">
         
         <uses-library android:name="com.google.android.maps"/>
         <activity android:label="@string/app_name" android:name=".LoginActivity">
