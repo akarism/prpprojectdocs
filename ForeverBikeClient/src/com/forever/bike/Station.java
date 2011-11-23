@@ -5,15 +5,15 @@
  * @author zhulicong89@gmail.com
  *
  */
-public class station {
-	private float lat,lng;
+public class Station {
+	private double lat,lng;
 	private String name,address;
 	private String pillar_num;
 	private String bike_num;
-	public float getlat() {
+	public double getlat() {
 		return lat;
 	}
-	public float getlng() {
+	public double getlng() {
 		return lng;
 	}
 	public String getName() {
@@ -28,10 +28,10 @@ public class station {
 	public String getBike_num() {
 		return bike_num;
 	}
-	public void setlat(float lat) {
+	public void setlat(double lat) {
 		this.lat = lat;
 	}
-	public void setlng(float lng) {
+	public void setlng(double lng) {
 		this.lng = lng;
 	}
 	public void setName(String name) {
@@ -47,7 +47,7 @@ public class station {
 		this.bike_num = bike_num;
 	}
 	
-	public station(String name,String address,float x,float y,String pillar_num,String bike_num){
+	public Station(String name,String address,double x,double y,String pillar_num,String bike_num){
 		this.name=name;
 		this.address=address;
 		this.lat=x;
@@ -56,11 +56,11 @@ public class station {
 		this.bike_num=bike_num;
 	}
 	
-	public station(){
+	public Station(){
 		this.name="";
 		this.address="";
-		this.lat=(float) 31.102021;
-		this.lng=(float) 121.3906;
+		this.lat=(double) 31.102021;
+		this.lng=(double) 121.3906;
 		this.pillar_num="";
 		this.bike_num="";
 	}

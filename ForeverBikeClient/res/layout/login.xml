@@ -55,7 +55,6 @@
             <EditText android:text="" android:id="@+id/pwdEditText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:password="true"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="right">
-            <Button android:text="取消" android:id="@+id/cancelbtn" android:layout_width="wrap_content" android:layout_height="wrap_content" ></Button>
             <Button android:text="登录" android:id="@+id/loginbtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
         </TableRow>
     </TableLayout>
