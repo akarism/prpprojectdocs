@@ -19,7 +19,7 @@ import android.widget.EditText;
 public class LoginActivity extends Activity {
 
 	private BikeApplication app;
-	private Button cancelBtn, loginBtn;
+	private Button loginBtn;
 	private EditText nameEditText, pwdEditText;
 
 	/** Called when the activity is first created. */
@@ -35,19 +35,13 @@ public class LoginActivity extends Activity {
 		nameEditText = (EditText) findViewById(R.id.nameEditText);
 		pwdEditText = (EditText) findViewById(R.id.pwdEditText);
 
-		cancelBtn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		});
-
 		loginBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
 				String username = nameEditText.getText().toString();
 				String password = pwdEditText.getText().toString();
+				app.setSessionId("");
 				// String login_answer = "success";
 				boolean login_answer = login(username, password);
 				if (login_answer == true) {

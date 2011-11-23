@@ -1,8 +1,6 @@
 package com.forever.bike;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
