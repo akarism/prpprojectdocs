@@ -58,7 +58,7 @@ public class GetAllNetInfoAction extends ForeverSupport {
 			while (rs.next()) {
 				JSONObject netInfo = new JSONObject();
 				netInfo.put(ObjectConstants.STATION_NID,
-						rs.getString("STATION_NID"));
+						df.format(rs.getLong("STATION_NID")));
 				netInfo.put(ObjectConstants.LOCK_COUNT,
 						rs.getString("LOCK_COUNT"));
 				netInfo.put(ObjectConstants.BIKE_COUNT,
